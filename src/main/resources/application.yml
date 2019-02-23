@@ -1,0 +1,12 @@
+spring:
+  datasource:
+    username: root
+    password: "000411"
+    url: jdbc:mysql//localhost:3306/db_library?useSSL=false&characterEncoding=utf-8
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  thymeleaf:
+    cache: false
+  servlet:
+    multipart:
+      max-file-size: 50MB
+      max-request-size: 50MB

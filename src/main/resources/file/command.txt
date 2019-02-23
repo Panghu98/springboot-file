@@ -1,0 +1,22 @@
+#后台启动docker
+docker-compose up -d
+#查看容器
+docker ps -a
+#peer节点的日志
+docker logs peer0.org1.imocc.com
+#进入client中
+docker exec -it cli bash
+#查看通道
+peer channel list
+#创建一个通道:
+# -o 表示需要与哪一个peer进行通信
+# -c 建立的通道名叫什么
+# -f 使用的是哪一个通道的创世交易,即指定交易方式
+peer channel create -o orderer.imocc.com:7050 -c mychannel -f /etc/hyperledger/config/mychannel.tx
+#加入通道
+peer channel join -b mychannel.block
+
+
+
+
+
