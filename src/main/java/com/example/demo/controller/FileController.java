@@ -66,4 +66,9 @@ public class FileController {
         fileService.download(fileName);
     }
 
+    @GetMapping("/multi_download")
+    public void MultiDownload(List<MultipartFile> files){
+
+    }
+
 }

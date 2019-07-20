@@ -2,6 +2,7 @@ package com.example.demo.service.impl;
 
 import com.example.demo.service.FileService;
 import lombok.extern.slf4j.Slf4j;
+import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -9,12 +10,15 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
+import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.*;
 import java.util.Hashtable;
 import java.util.List;
 import java.util.Map;
+import java.util.zip.ZipEntry;
+import java.util.zip.ZipOutputStream;
 
 /**
  * @author panghu
@@ -27,7 +31,7 @@ import java.util.Map;
 @Slf4j
 public class FileServiceImpl implements FileService {
 
-    private final static String path =  "/home/panghu/IdeaProjects/springboot文件上传下载示例/src/main/resources/file";
+    private final static String path =  "/home/panghu/IdeaProjects/springboot-file/src/main/resources/file";
 
     private HttpServletResponse response;
 
@@ -146,7 +150,12 @@ public class FileServiceImpl implements FileService {
                 log.error("error:{}",e.getMessage());
             }
         }
+        log.info("文件下载完成");
         map.put("msg","下载成功");
         return ;
     }
+
+
+
+
 }
